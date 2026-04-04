@@ -28,17 +28,17 @@ python startup.py -l your.lakebook路径 -o 输出根目录
 说明：
 
 - 单文件非交互模式会输出到 `输出根目录/lakebook同名目录`
-- 例如 `python startup.py -l ~/Downloads/AI.lakebook -o ~/Downloads` 会输出到 `~/Downloads/AI`
+- 例如 `python startup.py -l /path/to/your_file.lakebook -o /path/to/output_root` 会输出到 `/path/to/output_root/your_file`
 
 多文件批量模式：
 
 ```bash
-python startup.py -l AI.lakebook FrontEnd.lakebook -o ~/Doc
+python startup.py -l your_file_1.lakebook your_file_2.lakebook -o /path/to/output_root
 ```
 
 说明：
 
-- 会分别输出到 `~/Doc/AI`、`~/Doc/FrontEnd`
+- 会分别输出到 `/path/to/output_root/your_file_1`、`/path/to/output_root/your_file_2`
 
 交互模式：
 
