@@ -3,12 +3,24 @@
 ## 环境要求
 
 - Python 3.13
-- pip
+- `uv`
 
-安装依赖：
+安装 `uv` 后同步依赖：
 
 ```bash
-pip install -r requirements.txt
+uv sync
+```
+
+如果本机还没有安装 `uv`，可参考官方方式安装：
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+安装完成后，使用 `uv` 运行脚本：
+
+```bash
+uv run python startup.py
 ```
 
 ## 使用方法
@@ -16,24 +28,24 @@ pip install -r requirements.txt
 `meta.json` 模式：
 
 ```bash
-python startup.py -i meta.json路径 -o 输出目录
+uv run python startup.py -i meta.json路径 -o 输出目录
 ```
 
 `lakebook` 模式：
 
 ```bash
-python startup.py -l your.lakebook路径 -o 输出根目录
+uv run python startup.py -l your.lakebook路径 -o 输出根目录
 ```
 
 说明：
 
 - 单文件非交互模式会输出到 `输出根目录/lakebook同名目录`
-- 例如 `python startup.py -l /path/to/your_file.lakebook -o /path/to/output_root` 会输出到 `/path/to/output_root/your_file`
+- 例如 `uv run python startup.py -l /path/to/your_file.lakebook -o /path/to/output_root` 会输出到 `/path/to/output_root/your_file`
 
 多文件批量模式：
 
 ```bash
-python startup.py -l your_file_1.lakebook your_file_2.lakebook -o /path/to/output_root
+uv run python startup.py -l your_file_1.lakebook your_file_2.lakebook -o /path/to/output_root
 ```
 
 说明：
@@ -43,7 +55,7 @@ python startup.py -l your_file_1.lakebook your_file_2.lakebook -o /path/to/outpu
 交互模式：
 
 ```bash
-python startup.py
+uv run python startup.py
 ```
 
 交互模式说明：
@@ -73,19 +85,19 @@ python startup.py
 导出成功后自动打开目标目录：
 
 ```bash
-python startup.py -l your.lakebook路径 -o 输出根目录 --open-output
+uv run python startup.py -l your.lakebook路径 -o 输出根目录 --open-output
 ```
 
 跳过已存在的图片和附件文件：
 
 ```bash
-python startup.py -l your.lakebook路径 -o 输出根目录 --skip-existing-resources
+uv run python startup.py -l your.lakebook路径 -o 输出根目录 --skip-existing-resources
 ```
 
 禁用图片下载：
 
 ```bash
-python startup.py -l your.lakebook路径 -o 输出根目录 -d False
+uv run python startup.py -l your.lakebook路径 -o 输出根目录 -d False
 ```
 
 ## 打包
@@ -93,11 +105,3 @@ python startup.py -l your.lakebook路径 -o 输出根目录 -d False
 ```bash
 Pyinstaller -F -w -i image/asrgu-k3t3q-001.ico -n YuqueExportToMarkdown startup.py
 ```
-
-## Feature
-
-- [x] 支持命令行转换文件
-- [x] 支持直接读取 `.lakebook` 文件
-- [x] 支持跳过已存在的图片和附件文件，提高重复转换效率
-- [x] 支持禁用图片下载
-- [ ] 提供可视化操作
