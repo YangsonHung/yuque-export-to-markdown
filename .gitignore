@@ -1,0 +1,18 @@
+# cache
+__pycache__/
+__cache__/
+.DS_Store
+venv/
+.venv/
+*.log
+.yuque_export_state.json
+
+# 标准输出文件夹
+input/
+output/
+*.lakebook
+
+# ide
+.vscode
+.idea
+.out
