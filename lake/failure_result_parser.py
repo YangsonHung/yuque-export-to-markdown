@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-@Time ： 2023年11月13日 13点41分
-@Auth ： zhoup
-@File ：failure_result_parser.py
-"""
-
-
 def parse_failure_result(result: list):
     with open('failure_result.log', mode='w', encoding='utf-8') as f:
         f.writelines(result)
